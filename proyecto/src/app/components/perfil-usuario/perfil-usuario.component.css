@@ -1,0 +1,21 @@
+body {
+  background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+}
+
+.contact-form .form-control {
+  text-align: center;
+}
+
+
+.form-control {
+  background: transparent;
+  color: white;
+}
+
+.card-title {
+  color: orangered;
+}
+
+.card-text {
+  color: orange;
+}

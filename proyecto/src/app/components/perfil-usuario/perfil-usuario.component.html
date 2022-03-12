@@ -1,0 +1,112 @@
+<div class="container bg-transparent contact-form mt-5">
+    <div class="cabeceraImg">
+        <img
+            src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
+    </div>
+    <form method="post" class="bg-transparent mb-4" [formGroup]="regForm">
+        <div class="row mb-1">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input formControlName="nombre" type="text" name="nombre" class="form-control" [ngModel]="nombre" />
+                </div>
+
+                <div class="form-group">
+                    <label for="dni">Dni:</label>
+                    <input formControlName="dni" type="text" name="dni" class="form-control" [ngModel]="dni" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="apellidos">Apellidos:</label>
+                    <input formControlName="apellidos" type="text" name="apellidos" class="form-control"
+                        [ngModel]="apellidos" />
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input formControlName="tlf" type="text" name="telefono" class="form-control" [ngModel]="tlf" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input [ngModel]="email" formControlName="email" type="text" name="email" class="form-control" readonly
+                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="No puedes modificar el email" />
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="form-group col d-flex justify-content-center">
+                <button (click)="modificarMecanico()" name="modificar" class="btn btn-warning rounded-pill">
+                    Modificar datos
+                </button>
+            </div>
+            <div class="form-group col d-flex justify-content-center">
+                <button (click)="despedirMecanico()" name="modificar" class="btn btn-danger rounded-pill">
+                    Despedir mecánico
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <h1 class="text-white">Reparaciones realizadas</h1>
+        </div>
+        <div class="col-12 d-flex justify-content-center mb-3">
+            <div *ngIf="listaFacturas.length == 0">
+                <p class="text-white">¡Vaya, parece que este mecánico no ha reparado todavía ningún coche!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-4">
+    <div class="row">
+        <div *ngFor="let coche of listaFacturas" class="col-12 d-flex justify-content-center">
+            <div class="card text-white"
+                style="width:500px; background-color: rgba(219, 219, 219, 0.5);">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col">
+                                    <h1 class="card-title text-white">{{coche.marca}}</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <h2 class="card-title text-white">{{coche.modelo}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end col-6 text-white">
+                            Fecha de reparación: {{coche.fechaReparacion}}
+                        </div>
+                    </div>
+
+                    <div class="row pt-3">
+                        <div class="col">
+                            <p class="card-text text-white">Averías: {{coche.descripcionAveria}}</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text text-white">Coste: {{coche.costeReparacion}}€</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="d-flex justify-content-center col">
+                            <a [routerLink]="['/factura', coche.id]" class="btn btn-warning rounded-pill">Ver
+                                factura</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

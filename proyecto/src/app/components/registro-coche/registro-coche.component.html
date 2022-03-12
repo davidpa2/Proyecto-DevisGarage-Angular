@@ -1,0 +1,90 @@
+<div class="container bg-transparent contact-form my-5">
+    <div class="cabeceraImg">
+        <img
+            src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
+    </div>
+    <form method="POST" class="bg-transparent" [formGroup]="regForm">
+        <div class="row mb-1">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input formControlName="marca" type="text" name="marca" class="form-control" placeholder="Marca *"
+                        value="" />
+                </div>
+                <div class="form-group">
+                    <input formControlName="modelo" type="text" name="modelo" class="form-control"
+                        placeholder="Modelo *" value="" />
+                </div>
+                <div class="form-group">
+                    <input formControlName="km" type="text" name="km" class="form-control" placeholder="Kilómetros *"
+                        value="" />
+                </div>
+                <div class="form-group">
+                    <select (change)="recuperarClienteSeleccionado();" formControlName="cliente" class="form-select form-control border-white" name="cliente">
+                        <option class="text-dark" selected disabled>Selecciona un cliente</option>
+                        <option [value]="cliente.id" *ngFor="let cliente of listaClientes">{{cliente.nombre}} {{cliente.apellidos}} - {{cliente.dni}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input formControlName="averias" type="number" name="averias" class="form-control"
+                        placeholder="Nº averías *" value="" />
+                </div>
+                <div class="form-group">
+                    <textarea formControlName="descripcionAveria" name="descripcionAveria" class="form-control"
+                        placeholder="Descripción de la avería *" style="width: 100%; height: 115px;"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="col-md-4 d-flex justify-content-center">
+                <img class="imgCoche d-none" id="imgCoche" src="data:image/jpg;base64,{{fotoCoche}}">
+            </div>
+            <div class="form-group col-md-8 d-flex justify-content-center align-self-center">
+                <input type="file" (change)="guardarImagen();" name="fotoCoche" class="form-control"
+                    value="Añadir coche" id="fotoCocheInput" />
+            </div>
+        </div>
+
+        <!--BOTONES-->
+        <div class="row mt-4">
+            <div class="form-group col-md-6 d-flex justify-content-center">
+                <input name="annadirCoche" class="btn btn-warning rounded-pill" value="Añadir coche"
+                    id="btnAnnadirCoche" (click)="registerCar()" />
+            </div>
+            <div class="form-group col-md-6 d-flex justify-content-center">
+                <input type="button" name="nuevoCliente" class="btn btn-outline-warning rounded-pill"
+                    value="¿Nuevo cliente?" id="btnNuevoCliente" (click)="showNewClientForm()" />
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="regForm2" method="POST" class="bg-transparent d-none" id="formNewClient">
+        <div class="row mb-1">
+            <div class="form-group col-md-6">
+                <input formControlName="nombre" type="text" name="nombre" class="form-control" placeholder="Nombre *" value="" />
+            </div>
+            <div class="form-group col-md-6">
+                <input formControlName="apellidos" type="text" name="apellidos" class="form-control" placeholder="Apellidos *" value="" />
+            </div>
+            <div class="form-group col-md-6">
+                <input formControlName="dni" type="text" name="dni" class="form-control" placeholder="DNI *" value="" />
+            </div>
+            <div class="form-group col-md-6">
+                <input formControlName="tlf" type="text" name="tlf" class="form-control" placeholder="Teléfono *" value="" />
+            </div>
+            <div class="form-group col">
+                <input formControlName="gmail" type="text" name="gmail" class="form-control" placeholder="Email *" value="" />
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="form-group col d-flex justify-content-center">
+                <input type="button" name="nuevoCliente" class="btn btn-warning rounded-pill"
+                    value="Completar registro" (click)="registerClient()"/>
+            </div>
+        </div>
+    </form>
+</div>

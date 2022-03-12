@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row d-flex justify-content-center align-items-center my-5">
+        <div class="col-3 d-flex justify-content-end">
+            <img src="../../../assets/taller.jpg" alt="tallercito" class="pancarta">
+        </div>
+        <div class="col-3">
+            <div class="row text-white mb-5">
+                <div class="col-6">
+                    <h1>DeivisGarage</h1>
+                </div>
+                <div class="col-6">
+                    <img src="../../../assets/herramientas.png" alt="logo" class="logo">
+                </div>
+            </div>
+            <h1 class="text-white">Contratar un mecánico</h1>
+            <form method="POST" class="bg-transparent" [formGroup]="regForm">
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-group">
+                            <input formControlName="nombre" type="text" name="nombre" class="form-control"
+                                placeholder="Nombre *" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-group">
+                            <input formControlName="apellidos" type="text" name="apellidos" class="form-control"
+                                placeholder="Apellidos *" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-group">
+                            <input formControlName="dni" type="text" name="dni" class="form-control" placeholder="DNI *"
+                                value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-group">
+                            <input formControlName="tlf" type="text" name="tlf" class="form-control"
+                                placeholder="Teléfono *" value="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-group">
+                            <input formControlName="email" type="text" name="email" class="form-control"
+                                placeholder="Email *" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col">
+                        <div class="form-group">
+                            <input formControlName="password" type="password" name="pass" class="form-control"
+                                placeholder="Contraseña *" value="" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="form-group col d-flex justify-content-center">
+                        <input (click)="registrarMecanico()" name="iniciar" class="btn btn-warning rounded-pill"
+                            value="Registrar mecánico" id="registrar" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container my-4">
+    <h1 class="text-white text-center pb-3">Mecánicos contratados</h1>
+    <div class="row d-flex justify-content-center d-none">
+        <div class="col-7 alert alert-warning" role="alert">
+            Se han modificado los datos del mecánico:
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center d-none">
+        <div class="col-7 alert alert-warning" role="alert">
+            Se ha despedido el mecánico:
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div *ngFor="let mecanico of listaMecanicos" class="card text-white" style="width:600px; background-color: rgba(219, 219, 219, 0.5);">
+            <div class="card-body">
+                <h1 class="card-title">{{mecanico.nombre}}</h1>
+                <h2 class="card-title">{{mecanico.apellidos}}</h2>
+                <div class="row pt-3">
+                    <div class="col">
+                        <p class="card-text">Dni: {{mecanico.dni}}</p>
+                    </div>
+                    <div class="col">
+                        <p class="card-text">Teléfono: {{mecanico.tlf}}</p>
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="d-flex justify-content-center col">
+                        <p class="card-text">Email: {{mecanico.email}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col d-flex justify-content-center">
+                        <a [routerLink]="['/perfilUsuario', mecanico.id]" class="btn btn-warning rounded-pill">Ver perfil</a>
+                    </div>
+                    <!--<div class="col d-flex justify-content-center">
+                        <a href="" class="btn btn-warning rounded-pill">Editar
+                            datos</a>
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <form method="POST" class="bg-transparent">
+                            <button type="submit" class="btn btn-outline-danger rounded-pill text-white">
+                                Despedir mecánico
+                            </button>
+                        </form>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

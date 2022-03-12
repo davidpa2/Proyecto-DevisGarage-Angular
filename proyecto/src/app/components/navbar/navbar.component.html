@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-butano">
+  <div class="container-fluid">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-6">
+          <ul class="navbar-nav">
+            <li class="nav-item me-3">
+              <a class="nav-link active" routerLink="/taller">DeivisGarage</a>
+            </li>
+            <li *ngIf="mecanico!=null" class="nav-item">
+              <a class="nav-link" routerLink="/registrarCoche">Nuevo&nbsp;coche</a>
+            </li>
+            <li *ngIf="mecanico!=null" class="nav-item">
+              <a class="nav-link" routerLink="/historialReparaciones">Reparaciones</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <ul *ngIf="mecanico!=null" class="navbar-nav">
+            <!--FUNCIONES DE ADMINISTRADOR-->
+            <li *ngIf="mecanico.rol == 'admin'" class="nav-item">
+              <a class="nav-link" routerLink="/listaMecanicos">Mecánicos</a>
+            </li>
+            <li *ngIf="mecanico.rol == 'admin'" class="nav-item">
+              <a class="nav-link" routerLink="/registrarMecanico">Contratar Mecanico</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">
+      <span *ngIf="mecanico==null" class="d-flex justify-content-end">
+        <button class="nav-link btn btn-warning rounded-pill botonNav" routerLink="/inicio">Iniciar sesión</button>
+      </span>
+      <span *ngIf="mecanico!=null" class="d-flex justify-content-end">
+        <button (click)="cerrarSesion()" class="nav-link btn btn-warning rounded-pill botonNav">Cerrar sesión</button>
+      </span>
+    </div>
+  </div>
+</nav>

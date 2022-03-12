@@ -1,0 +1,100 @@
+<!-- La plantilla de impresión no se muestra en la vista, sólo sirve para mostrarla en el documento a imprimir-->
+<div id="plantillaImpresion" class="d-none">
+    <div class="row d-flex justify-content-center">
+        <div class="col">
+            <h1 class="d-flex justify-content-start">DeivisGarage</h1>
+            <p class="">"Su taller por exelencia y experiencia"</p>
+        </div>
+        <div class="col">
+            <h2 class="d-flex justify-content-end">Factura</h2>
+        </div>
+    </div>
+</div>
+
+<div id="plantillaImpresion2" class="d-none">
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <hr>
+            <p class="text-white text-center">Firma del mecánico:</p>
+        </div>
+    </div>
+</div>
+
+<div id="plantillaImpresion3" class="d-none mt-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <p class="text-white text-center">Coste de reparación: </p>
+            <h3 class="text-white text-center" id="pCoste"></h3>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4" id="impresion">
+    <div class="row d-flex justify-content-center">
+        <h1 class="white-title text-center">Datos del cliente:</h1>
+        <div class="col-4 text-white">
+            <p>Nombre: {{cliente.nombre}}</p>
+            <p>DNI: {{cliente.dni}}</p>
+            <p>Email: {{cliente.gmail}}</p>
+        </div>
+        <div class="col-2 text-white">
+            <p>Apellidos: {{cliente.apellidos}}</p>
+            <p>Teléfono: {{cliente.tlf}}</p>
+            <p>Mecánico: {{mecanico.nombre}} {{mecanico.apellidos}}</p>
+        </div>
+    </div>
+
+    <div class="row d-flex justify-content-center pt-4">
+        <h1 class="white-title text-center">Datos del vehículo</h1>
+        <div class="col-4 text-white">
+            <p>Marca: {{coche.marca}}</p>
+            <p>Kilómetros: {{coche.km}}</p>
+
+        </div>
+        <div class="col-2 text-white">
+            <p>Modelo: {{coche.modelo}}</p>
+            <p>Averías: {{coche.averias}}</p>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-5 text-white d-flex justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <p> Descripción de las averías:</p>
+                </div>
+            </div>           
+            <div class="row">
+                <div class="col-12">
+                    <p>{{coche.descripcionAveria}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-center my-4">
+    <div class="col-2">
+        <label for="costeAveria" class="text-white">Coste de reparación(€):</label>
+    </div>
+    <div class="col-3">
+        <form [formGroup]="regForm">
+            <input *ngIf="coche.costeReparacion != '0'" type="number" name="costeAveria" id="costeAveria"
+                class="form-control text-center" placeholder="Coste (€)" value="{{coche.costeReparacion}}" disabled />
+            <input formControlName="coste" *ngIf="coche.costeReparacion == '0'" type="number" name="costeAveria"
+                id="costeAveria" class="form-control text-center" placeholder="Coste (€)"
+                (change)="actualizarCoste()" />
+        </form>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <div class="row mb-4 d-flex justify-content-center">
+        <div class="col-3 d-flex justify-content-center">
+            <button (click)="imprimir()" id="imprimir" name="nuevoCliente" class="btn btn-warning rounded-pill"
+                value="Imprimir factura">Imprimir factura</button>
+        </div>
+        <div class="col-3 d-flex justify-content-center">
+            <button (click)="volver()" name="nuevoCliente" class="btn btn-outline-warning rounded-pill">Volver</button>
+        </div>
+    </div>
+</div>

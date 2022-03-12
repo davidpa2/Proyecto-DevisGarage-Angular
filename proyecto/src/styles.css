@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+  cursor: crosshair;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: url("https://img.freepik.com/foto-gratis/banner-pizarra-negro-oscuro-pared-interior-blanco-sala-estudio-producto-presentado_28629-595.jpg?size=626&ext=jpg");
+}
+
+.bg-butano {
+  background-color: darkorange;
+}
+
+.bg-limon {
+  background-color: #ffc506;
+}
+
+.white-title {
+  color: white;
+}
+
+hr {
+  border: 1px solid orange;
+  border-radius: 1px;
+}
+
+.contact-form .form-control {
+  border-radius: 1rem;
+}
+
+.cabeceraImg {
+  text-align: center;
+}
+.cabeceraImg img {
+  border-radius: 4rem;
+  width: 17%;
+  margin-top: -3%;
+}
+.contact-form form {
+  padding: 50px;
+}
+.contact-form form .row {
+  margin-bottom: -7%;
+}
+.contact-form {
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5%;
+  color: #fff;
+}
+
+.imgCoche {
+  border-radius: 5rem;
+  width: 10rem;
+}
+
+.form-control {
+  background: transparent;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+textarea {
+  resize: none;
+}
